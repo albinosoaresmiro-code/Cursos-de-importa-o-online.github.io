@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PayLink Angola</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #d1d5db;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .result {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #ecfdf5;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>PayLink Angola</h1>
+    <p>Pagamentos online de forma simples</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+
+      <h2>Fazer pagamento</h2>
+
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" placeholder="Digite o seu nome">
+
+      <label for="valor">Valor (USD)</label>
+      <input type="number" id="valor" placeholder="Ex: 10">
+
+      <label for="metodo">Método de pagamento</label>
+      <select id="metodo">
+        <option>Visa</option>
+        <option>USDT</option>
+        <option>Outro</option>
+      </select>
+
+      <button onclick="pagar()">Continuar pagamento</button>
+
+      <div class="result" id="resultado">
+        <strong>Pagamento iniciado!</strong>
+        <p id="mensagem"></p>
+      </div>
+
+    </div>
+
+    <footer>
+      © 2026 PayLink Angola
+    </footer>
+
+  </div>
+
+  <script>
+    function pagar() {
+
+      const nome = document.getElementById("nome").value;
+      const valor = document.getElementById("valor").value;
+      const metodo = document.getElementById("metodo").value;
+
+      if (nome === "" || valor === "") {
+        alert("Preencha todos os campos.");
+        return;
+      }
+
+      document.getElementById("resultado").style.display = "block";
+
+      document.getElementById("mensagem").innerHTML =
+        "Olá, " + nome +
+        "! Valor: $" + valor +
+        "<br>Método: " + metodo +
+        "<br><br>O pagamento será processado.";
+    }
+  </script>
+
+</body>
+</html>
